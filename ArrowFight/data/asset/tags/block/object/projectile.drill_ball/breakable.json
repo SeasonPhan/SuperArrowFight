@@ -158,10 +158,8 @@
         "cartography_table",
         "carved_pumpkin",
         "cauldron",
-
         "cave_vines",
         "cave_vines_plant",
-        "chain",
         "cherry_button",
         "cherry_door",
         "cherry_fence",
@@ -1085,6 +1083,14 @@
         "yellow_wall_banner",
         "yellow_wool",
         "zombie_head",
-        "zombie_wall_head"
-  ]
+        "zombie_wall_head",
+        {
+            "id": "minecraft:chain",
+            "required": false
+        },
+        {
+            "id": "#minecraft:chains",
+            "required": false
+        }
+    ]
 }

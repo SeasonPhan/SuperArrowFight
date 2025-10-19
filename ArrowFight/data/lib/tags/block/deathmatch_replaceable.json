@@ -160,7 +160,6 @@
         "cauldron",
         "cave_vines",
         "cave_vines_plant",
-        "chain",
         "cherry_button",
         "cherry_door",
         "cherry_fence",
@@ -1085,6 +1084,14 @@
         "yellow_wool",
         "zombie_head",
         "zombie_wall_head",
-        "bedrock"
+        "bedrock",
+        {
+            "id": "minecraft:chain",
+            "required": false
+        },
+        {
+            "id": "#minecraft:chains",
+            "required": false
+        }
     ]
 }
