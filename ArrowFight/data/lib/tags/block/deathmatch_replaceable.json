@@ -1085,13 +1085,6 @@
         "zombie_head",
         "zombie_wall_head",
         "bedrock",
-        {
-            "id": "minecraft:chain",
-            "required": false
-        },
-        {
-            "id": "#minecraft:chains",
-            "required": false
-        }
+        "#minecraft:chains"
     ]
 }

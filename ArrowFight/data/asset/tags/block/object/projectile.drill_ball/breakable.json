@@ -1084,13 +1084,6 @@
         "yellow_wool",
         "zombie_head",
         "zombie_wall_head",
-        {
-            "id": "minecraft:chain",
-            "required": false
-        },
-        {
-            "id": "#minecraft:chains",
-            "required": false
-        }
+        "#minecraft:chains"
     ]
 }
