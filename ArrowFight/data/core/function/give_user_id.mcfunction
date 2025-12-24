@@ -12,6 +12,9 @@
     tp @s 500 126 495 0.0 0.0
     gamemode adventure @s
 
+# (やかましいけど)参加時にレシピ全開放
+    recipe give @s *
+
 # ロビーモードにする
     function player_manager:mode/lobby
 
