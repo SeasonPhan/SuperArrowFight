@@ -90,17 +90,17 @@
     forceload add 0 0
 
 # ゲームルール定義
-    gamerule keepInventory false
-    gamerule spectatorsGenerateChunks true
-    gamerule commandModificationBlockLimit 2147483647
-    gamerule doDaylightCycle false
-    gamerule doImmediateRespawn true
-    gamerule locatorBar false
-    gamerule spawnRadius 0
-    gamerule naturalRegeneration false
-    gamerule reducedDebugInfo true
-    gamerule playersNetherPortalDefaultDelay 2147483647
-    gamerule doMobSpawning false
+    gamerule keep_inventory false
+    gamerule spectators_generate_chunks true
+    gamerule max_command_sequence_length 2147483647
+    gamerule advance_time false
+    gamerule immediate_respawn true
+    gamerule locator_bar false
+    gamerule respawn_radius 0
+    gamerule natural_health_regeneration false
+    gamerule reduced_debug_info true
+    gamerule players_nether_portal_default_delay 2147483647
+    gamerule spawn_mobs false
 
 # チーム作成と設定
     # 赤チーム
