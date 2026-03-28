@@ -37,5 +37,5 @@
     tellraw @a {"text":"[GolemBullet DEBUG] golem summon call returned","color":"green"}
 
 # 演出
-    particle minecraft:flash ~ ~1 ~ 0 0 0 0 1 force @a[distance=..64]
+    particle minecraft:flash{color:[1.0,1.0,1.0,1.0]} ~ ~1 ~ 0 0 0 0 1 force @a[distance=..64]
     playsound minecraft:entity.iron_golem.step neutral @a ~ ~ ~ 1 0.8

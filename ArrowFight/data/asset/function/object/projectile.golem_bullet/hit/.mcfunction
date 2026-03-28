@@ -11,7 +11,7 @@
 # 演出
     playsound minecraft:entity.iron_golem.hurt neutral @a ~ ~ ~ 1.5 0.8
     playsound minecraft:entity.generic.explode neutral @a ~ ~ ~ 0.8 1.3
-    particle minecraft:flash ~ ~1 ~ 0 0 0 0 1 force @a[distance=..64]
+    particle minecraft:flash{color:[1.0,1.0,1.0,1.0]} ~ ~1 ~ 0 0 0 0 1 force @a[distance=..64]
     particle minecraft:smoke ~ ~1 ~ 0.3 0.3 0.3 0.05 20 force @a[distance=..64]
     particle minecraft:crit ~ ~1 ~ 0.3 0.3 0.3 0.1 30 force @a[distance=..64]
 
