@@ -5,4 +5,4 @@
 # @within asset_manager:mob/summon/summon.m
 
 # 元となるEntityを召喚する
-    summon iron_golem ~ ~ ~ {Tags:["MobInit","VanishOnReset","VanishOnExitArena"],IsVillager:0b,PlayerCreated:1b}
+    summon iron_golem ~ ~ ~ {Tags:["MobInit","VanishOnReset"]}

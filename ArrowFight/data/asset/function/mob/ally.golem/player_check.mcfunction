@@ -6,6 +6,10 @@
 # @within function core:tick/player/
 # @s = GolemVictim タグを持つプレイヤー
 
+# 猶予期間中はチェックをスキップする (変身直後の誤爆防止)
+    execute if score @s ally.golem.GraceTicks matches 1.. run scoreboard players remove @s ally.golem.GraceTicks 1
+    execute if score @s ally.golem.GraceTicks matches 1.. run return 0
+
 # 自分の UserID を取得する
     scoreboard players operation $GolemCheckUID Temporary = @s UserID
 

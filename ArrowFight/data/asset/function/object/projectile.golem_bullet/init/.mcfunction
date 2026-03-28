@@ -4,13 +4,6 @@
 #
 # @within asset_manager:object/init/init.m
 
-# [DEBUG] Confirm init ran — if this shows, the AssetObject marker was created
-    tellraw @a {"text":"[GolemBullet DEBUG] INIT fired! Marker entity exists.","color":"gold"}
-    scoreboard players set $VehiclePresent Temporary 0
-    execute on vehicle run scoreboard players set $VehiclePresent Temporary 1
-    execute if score $VehiclePresent Temporary matches 1 run tellraw @a {"text":"[GolemBullet DEBUG] INIT: ender pearl vehicle is present.","color":"gold"}
-    execute if score $VehiclePresent Temporary matches 0 run tellraw @a {"text":"[GolemBullet DEBUG] INIT ERROR: no ender pearl vehicle!","color":"red"}
-
 # サウンド
     playsound minecraft:entity.iron_golem.attack player @a ^ ^ ^1 1 1.2
     playsound minecraft:entity.blaze.shoot player @a ^ ^ ^1 1 1.5

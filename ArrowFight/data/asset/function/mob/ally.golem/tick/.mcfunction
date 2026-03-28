@@ -31,6 +31,7 @@
 # (0.4 = 40% の閾値: max_health に 0.4 をかけた整数値と現在体力を比較する)
     execute store result score $GolemThreshold Temporary run attribute @s max_health get 0.4
     execute if score $GolemHealthNow Temporary <= $GolemThreshold Temporary run function asset:mob/ally.golem/tick/revert
+    execute if score $GolemHealthNow Temporary <= $GolemThreshold Temporary run return 0
 
 # クリーンアップ
     scoreboard players reset $GolemHealthNow Temporary

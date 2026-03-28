@@ -91,6 +91,7 @@
         scoreboard objectives add ally.golem.PosX dummy {"text":"ally.golem: ゴーレムのX座標"}
         scoreboard objectives add ally.golem.PosY dummy {"text":"ally.golem: ゴーレムのY座標"}
         scoreboard objectives add ally.golem.PosZ dummy {"text":"ally.golem: ゴーレムのZ座標"}
+        scoreboard objectives add ally.golem.GraceTicks dummy {"text":"ally.golem: 変身猶予カウンター"}
 
 # Romの初期化
     function rom:init
