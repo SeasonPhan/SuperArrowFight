@@ -19,11 +19,11 @@
     # 赤チームが発射 → 青チームの最近接プレイヤーを対象にする
         execute if data storage asset:context this{Team:Red} run tellraw @a {"text":"[GolemBullet DEBUG] Team=Red: searching for Team.Blue enemy within 5r...","color":"yellow"}
         execute if data storage asset:context this{Team:Red} store result score $GBDebugCount Temporary if entity @a[team=Team.Blue,distance=..5] run tellraw @a [{"text":"[GolemBullet DEBUG] Team.Blue players in 5r: ","color":"yellow"},{"score":{"name":"$GBDebugCount","objective":"Temporary"},"color":"white"}]
-        execute if data storage asset:context this{Team:Red} as @p[type=player,team=Team.Blue,distance=..5] at @s run function asset:object/projectile.golem_bullet/hit/transform
+        execute if data storage asset:context this{Team:Red} as @p[team=Team.Blue,distance=..5] at @s run function asset:object/projectile.golem_bullet/hit/transform
     # 青チームが発射 → 赤チームの最近接プレイヤーを対象にする
         execute if data storage asset:context this{Team:Blue} run tellraw @a {"text":"[GolemBullet DEBUG] Team=Blue: searching for Team.Red enemy within 5r...","color":"yellow"}
         execute if data storage asset:context this{Team:Blue} store result score $GBDebugCount Temporary if entity @a[team=Team.Red,distance=..5] run tellraw @a [{"text":"[GolemBullet DEBUG] Team.Red players in 5r: ","color":"yellow"},{"score":{"name":"$GBDebugCount","objective":"Temporary"},"color":"white"}]
-        execute if data storage asset:context this{Team:Blue} as @p[type=player,team=Team.Red,distance=..5] at @s run function asset:object/projectile.golem_bullet/hit/transform
+        execute if data storage asset:context this{Team:Blue} as @p[team=Team.Red,distance=..5] at @s run function asset:object/projectile.golem_bullet/hit/transform
 
 # Super
     function asset:object/super.method
