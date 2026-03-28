@@ -10,12 +10,8 @@
     particle minecraft:smoke ~ ~1 ~ 0.3 0.3 0.3 0.05 20 force @a[distance=..64]
     particle minecraft:crit ~ ~1 ~ 0.3 0.3 0.3 0.1 30 force @a[distance=..64]
 
-# 範囲内の最も近いプレイヤー(1人)をゴーレムに変える (味方・敵問わず、射手は除外)
-    execute store result score $GolemShooterUID Temporary run data get storage asset:context this.ShooterUserID 1
-    execute as @a if score @s UserID = $GolemShooterUID Temporary run tag @s add GolemShooterTemp
-    execute as @p[distance=..5,gamemode=!spectator,tag=!GolemVictim,tag=!GolemShooterTemp] at @s run function asset:object/projectile.golem_bullet/hit/transform
-    tag @a[tag=GolemShooterTemp] remove GolemShooterTemp
-    scoreboard players reset $GolemShooterUID Temporary
+# 範囲内の最も近いプレイヤー(1人)をゴーレムに変える (味方・敵・射手を問わず)
+    execute as @p[distance=..5,gamemode=!spectator,tag=!GolemVictim] at @s run function asset:object/projectile.golem_bullet/hit/transform
 
 # Super
     function asset:object/super.method

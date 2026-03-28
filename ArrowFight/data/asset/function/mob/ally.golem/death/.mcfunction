@@ -9,6 +9,13 @@
 # VictimLink スコアを一時変数にコピーしてプレイヤーを特定する
     scoreboard players operation $GolemDeathLink Temporary = @s ally.golem.VictimLink
 
+# 対象の GolemVictim プレイヤーが存在しなければスキップ (revert で既に処理済み)
+    scoreboard players set $GolemDeathFound Temporary 0
+    execute as @a[tag=GolemVictim] if score @s UserID = $GolemDeathLink Temporary run scoreboard players set $GolemDeathFound Temporary 1
+    execute if score $GolemDeathFound Temporary matches 0 run scoreboard players reset $GolemDeathLink Temporary
+    execute if score $GolemDeathFound Temporary matches 0 run scoreboard players reset $GolemDeathFound Temporary
+    execute if score $GolemDeathFound Temporary matches 0 run return 0
+
 # 被害者プレイヤーをゴーレムの座標にテレポートしてキルする
 # (ゴーレムの座標は実行コンテキストの ~ ~ ~ に保持されている)
     execute as @a[tag=GolemVictim] if score @s UserID = $GolemDeathLink Temporary run tp @s ~ ~ ~
@@ -25,3 +32,4 @@
 
 # クリーンアップ
     scoreboard players reset $GolemDeathLink Temporary
+    scoreboard players reset $GolemDeathFound Temporary
