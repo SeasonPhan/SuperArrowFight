@@ -7,6 +7,19 @@
 # Tick カウンターを加算
     scoreboard players add @s General.Mob.Tick 1
 
+# ゴーレムの現在座標を被害者プレイヤーに毎tick記録する (緊急復元時のテレポート先)
+    scoreboard players operation $GolemPosLink Temporary = @s ally.golem.VictimLink
+    execute store result score $GolemPosX Temporary run data get entity @s Pos[0] 1
+    execute store result score $GolemPosY Temporary run data get entity @s Pos[1] 1
+    execute store result score $GolemPosZ Temporary run data get entity @s Pos[2] 1
+    execute as @a[tag=GolemVictim] if score @s UserID = $GolemPosLink Temporary run scoreboard players operation @s ally.golem.PosX = $GolemPosX Temporary
+    execute as @a[tag=GolemVictim] if score @s UserID = $GolemPosLink Temporary run scoreboard players operation @s ally.golem.PosY = $GolemPosY Temporary
+    execute as @a[tag=GolemVictim] if score @s UserID = $GolemPosLink Temporary run scoreboard players operation @s ally.golem.PosZ = $GolemPosZ Temporary
+    scoreboard players reset $GolemPosLink Temporary
+    scoreboard players reset $GolemPosX Temporary
+    scoreboard players reset $GolemPosY Temporary
+    scoreboard players reset $GolemPosZ Temporary
+
 # 現在の体力を取得 (整数、小数点以下切り捨て)
     execute store result score $GolemHealthNow Temporary run data get entity @s Health
 

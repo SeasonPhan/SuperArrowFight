@@ -88,6 +88,9 @@
     #   asset:mob/ally.golem/**
         scoreboard objectives add ally.golem.VictimLink dummy {"text":"ally.golem: 被害者のUserID"}
         scoreboard objectives add ally.golem.ShooterLink dummy {"text":"ally.golem: 射手のUserID"}
+        scoreboard objectives add ally.golem.PosX dummy {"text":"ally.golem: ゴーレムのX座標"}
+        scoreboard objectives add ally.golem.PosY dummy {"text":"ally.golem: ゴーレムのY座標"}
+        scoreboard objectives add ally.golem.PosZ dummy {"text":"ally.golem: ゴーレムのZ座標"}
 
 # Romの初期化
     function rom:init

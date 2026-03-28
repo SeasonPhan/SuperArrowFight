@@ -91,5 +91,11 @@
         data modify entity @s Offers.Recipes[10].buy set value {id:"minecraft:cobblestone",count:10}
         data modify entity @s Offers.Recipes[10].buyB set value {id:"minecraft:lava_bucket",count:1}
         data modify entity @s Offers.Recipes[10].sell set from entity @s Inventory[0]
+    # ゴーレム弾
+        loot replace entity @s villager.0 loot asset:item/golem_bullet
+        data modify entity @s Offers.Recipes append value {rewardExp:0b,maxUses:2147483647,buy:{id:"minecraft:stone",count:1},sell:{id:"minecraft:grass_block",count:1}}
+        data modify entity @s Offers.Recipes[11].buy set value {id:"minecraft:iron_block",count:2}
+        data modify entity @s Offers.Recipes[11].buyB set value {id:"minecraft:emerald",count:10}
+        data modify entity @s Offers.Recipes[11].sell set from entity @s Inventory[0]
     # クリア
         clear @s
