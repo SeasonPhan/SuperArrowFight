@@ -28,6 +28,7 @@
     playsound minecraft:entity.iron_golem.death neutral @a ~ ~ ~ 1.5 0.7
 
 # 被害者を即座にキルする (ゴーレムが死亡 → 被害者も死亡)
+# 注: GolemVictim タグは上で除去済みなので @a で UserID のみで特定する
     execute as @a if score @s UserID = $GolemDeathLink Temporary run kill @s
 
 # クリーンアップ
