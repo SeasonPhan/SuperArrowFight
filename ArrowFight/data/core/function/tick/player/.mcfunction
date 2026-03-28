@@ -53,6 +53,9 @@
 
 # エリア処理
     function world_manager:area/
+
+# ゴーレム変身中のプレイヤーの監視 (ゴーレムが消えた場合の緊急復元)
+    execute if entity @s[tag=GolemVictim] run function asset:mob/ally.golem/player_check
 ## トリガー処理
 #    function player_manager:trigger/
 ## 落下ダメージの処理

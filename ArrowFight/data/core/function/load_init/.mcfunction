@@ -83,6 +83,12 @@
         scoreboard objectives add StopRegeneration dummy {"text":"ヘルス再生停止"}
         scoreboard objectives add DelayLoad dummy {"text":"遅延ロード"}
 
+    #> ally.golem: 被害者リンクおよびキル帰属
+    # @within function
+    #   asset:mob/ally.golem/**
+        scoreboard objectives add ally.golem.VictimLink dummy {"text":"ally.golem: 被害者のUserID"}
+        scoreboard objectives add ally.golem.ShooterLink dummy {"text":"ally.golem: 射手のUserID"}
+
 # Romの初期化
     function rom:init
 
