@@ -25,6 +25,7 @@
     function asset:mob/ally.golem/tick/apply_max_health with storage asset:temp
 
 # instant_healthで目標HPまで回復 (現在HPが目標より低い場合)
+# amplifier 10 = 2048HP分の回復だが、max_healthが目標HPに設定済みなので目標HP以上には回復しない
 # ※ここではclearしない。次tickで回復が処理された後にclearする
     effect give @s minecraft:instant_health 1 10 true
 
