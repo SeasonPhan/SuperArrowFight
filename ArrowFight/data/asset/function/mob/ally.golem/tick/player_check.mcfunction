@@ -19,7 +19,7 @@
     scoreboard players operation $GolemHealthPer Temporary *= $100 Const
     scoreboard players operation $GolemHealthPer Temporary /= $GolemMaxHealth Temporary
 
-# デバッグ (20tickごとに表示)
+# デバッグ (10tickごとに表示)
     scoreboard players operation $Temp Temporary = @s ally.golem.Timer
     scoreboard players operation $Temp Temporary %= $10 Const
     execute if score $Temp Temporary matches 0 run tellraw @a [{"text":"[DEBUG] ","color":"gray"},{"text":"Golem HP: ","color":"aqua"},{"score":{"name":"$GolemHealthPer","objective":"Temporary"}},{"text":"%, Timer: ","color":"aqua"},{"score":{"name":"@s","objective":"ally.golem.Timer"}}]

@@ -14,7 +14,7 @@
 # プレイヤーをゴーレムの位置に移動
     tp @s ~ ~ ~ ~ ~
 
-# 体力を設定 ($RestoreHealth は 10000倍されている, 0.0001で元に戻す)
+# 体力を設定 (200000 = 20HP × 10000倍, $GolemHealth/$GolemMaxHealth比率で補正, 0.0001で元のHP単位に戻す)
     execute store result entity @s Health float 0.0001 run scoreboard players get $RestoreHealth Temporary
 
 # 最低1HPは保証する
