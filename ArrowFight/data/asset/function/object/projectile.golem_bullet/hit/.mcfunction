@@ -7,14 +7,8 @@
 # デバッグ
     tellraw @a [{"text":"[DEBUG] ","color":"gray"},{"text":"Golem Bullet hit!","color":"gold"}]
 
-# プレイヤー直撃チェック (1ブロック範囲内の最も近いプレイヤー、無敵でないもの)
-    execute positioned ~-0.5 ~-0.5 ~-0.5 if entity @p[tag=!PlayerShouldInvulnerable,tag=GameJoinedPlayer,dx=0] run function asset:object/projectile.golem_bullet/hit/hit_player
-
-# プレイヤーに当たらなかった場合は地面着弾 - 近くのプレイヤーをスキャン
-    execute unless data storage asset:context {GolemBulletHitPlayer:true} run function asset:object/projectile.golem_bullet/hit/hit_ground
-
-# リセット
-    data remove storage asset:context GolemBulletHitPlayer
+# 3ブロック以内の最も近いプレイヤーをゴーレム化 (チーム問わず、自分自身含む)
+    execute as @p[tag=GameJoinedPlayer,tag=!GolemTransformed,distance=..3] at @s run function asset:object/projectile.golem_bullet/hit/transform_player
 
 # 演出
     playsound minecraft:entity.iron_golem.hurt neutral @a ~ ~ ~ 1.5 1

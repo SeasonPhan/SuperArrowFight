@@ -14,6 +14,7 @@
     scoreboard objectives add ally.golem.PosX dummy {"text":"Golem Victim PosX"}
     scoreboard objectives add ally.golem.PosY dummy {"text":"Golem Victim PosY"}
     scoreboard objectives add ally.golem.PosZ dummy {"text":"Golem Victim PosZ"}
+    scoreboard objectives add ally.golem.RestoreHP dummy {"text":"Golem Restore HP"}
 
 # その他初期化が必要なもの
     function #asset:item/load

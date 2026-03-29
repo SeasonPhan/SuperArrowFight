@@ -29,7 +29,7 @@
 
 # プレイヤーをスペクテイターモードに変更し、ゴーレムをスペクテイト
     gamemode spectator @s
-    spectate @e[type=iron_golem,tag=Mob.ally.golem,sort=nearest,limit=1,distance=..3] @s
+    spectate @e[type=husk,tag=Mob.ally.golem,sort=nearest,limit=1,distance=..5] @s
 
 # 演出
     playsound minecraft:entity.iron_golem.repair player @a ~ ~ ~ 1 0.8
