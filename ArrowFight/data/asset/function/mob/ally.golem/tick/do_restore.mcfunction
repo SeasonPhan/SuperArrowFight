@@ -1,15 +1,19 @@
 #> asset:mob/ally.golem/tick/do_restore
-#
-# プレイヤーをゴーレム位置に復帰させる (通常の変身解除)
-# @s = 復帰対象のプレイヤー, 実行位置 = ゴーレムの位置
-#
-# @within function asset:mob/ally.golem/tick/restore_player
 
-# デバッグ
-    tellraw @a [{"text":"[DEBUG] ","color":"gray"},{"text":"Restoring ","color":"green"},{"selector":"@s"},{"text":" to golem position with scaled HP=","color":"green"},{"score":{"name":"$RestoreHealth","objective":"Temporary"}}]
+# プレイヤーの最大体力を取得して復帰体力を計算 (scale=100)
+    execute store result score $PlayerMaxHealth Temporary run attribute @s max_health get 100
+
+# 復帰体力を計算: PlayerMaxHealth * (GolemHealthPer / 10000)
+    scoreboard players operation $RestoreHealth Temporary = $PlayerMaxHealth Temporary
+    scoreboard players operation $RestoreHealth Temporary *= $GolemHealthPer Temporary
+    scoreboard players set $Scale Temporary 10000
+    scoreboard players operation $RestoreHealth Temporary /= $Scale Temporary
 
 # 復帰体力をプレイヤーのスコアに保存 (次tickで適用するため)
     scoreboard players operation @s ally.golem.RestoreHP = $RestoreHealth Temporary
+
+# デバッグ
+    #tellraw @a [{"text":"[DEBUG] ","color":"gray"},{"text":"Restoring ","color":"green"},{"selector":"@s"},{"text":" to golem position with scaled HP=","color":"green"},{"score":{"name":"$RestoreHealth","objective":"Temporary"}}]
 
 # サバイバルモードに戻す
     gamemode survival @s
