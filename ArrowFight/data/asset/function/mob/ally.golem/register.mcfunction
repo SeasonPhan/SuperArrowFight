@@ -8,3 +8,6 @@
     data modify storage asset:mob IsAbstract set value false
 # ID (int)
     data modify storage asset:mob ID set value "ally.golem"
+# フィールド
+    data modify storage asset:mob Field.VictimUserID set value 0
+    data modify storage asset:mob Field.Team set value "none"

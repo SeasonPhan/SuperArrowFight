@@ -6,7 +6,7 @@
 # @within function asset:mob/ally.golem/tick/player_check
 
 # デバッグ
-    tellraw @a [{"text":"[DEBUG] ","color":"gray"},{"text":"Golem killed! Emergency restore - player will die","color":"red"}]
+    tellraw @a [{"text":"[DEBUG] ","color":"gray"},{"text":"Golem killed! Emergency restore - player will die, VictimLink=","color":"red"},{"score":{"name":"@s","objective":"ally.golem.VictimLink"}}]
 
 #> 計算用スコアホルダー
 # @private

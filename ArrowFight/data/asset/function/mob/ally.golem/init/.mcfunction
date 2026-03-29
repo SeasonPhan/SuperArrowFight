@@ -22,4 +22,4 @@
     execute store result score @s ally.golem.VictimLink run data get storage asset:context this.VictimUserID
 
 # デバッグ
-    tellraw @a [{"text":"[DEBUG] ","color":"gray"},{"text":"Golem spawned! Timer=160, VictimLink=","color":"aqua"},{"score":{"name":"@s","objective":"ally.golem.VictimLink"}}]
+    tellraw @a [{"text":"[DEBUG] ","color":"gray"},{"text":"Golem spawned! Timer=","color":"aqua"},{"score":{"name":"@s","objective":"ally.golem.Timer"}},{"text":", GraceTicks=","color":"aqua"},{"score":{"name":"@s","objective":"ally.golem.GraceTicks"}},{"text":", VictimLink=","color":"aqua"},{"score":{"name":"@s","objective":"ally.golem.VictimLink"}}]

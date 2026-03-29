@@ -6,7 +6,7 @@
 # @within function asset:mob/ally.golem/tick/player_check
 
 # デバッグ
-    tellraw @a [{"text":"[DEBUG] ","color":"gray"},{"text":"Restoring player from golem (normal)","color":"green"}]
+    tellraw @a [{"text":"[DEBUG] ","color":"gray"},{"text":"Restoring player from golem (normal), VictimLink=","color":"green"},{"score":{"name":"@s","objective":"ally.golem.VictimLink"}}]
 
 #> 計算用スコアホルダー
 # @private
