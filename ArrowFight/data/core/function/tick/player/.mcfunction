@@ -54,6 +54,9 @@
 # ゴーレム復帰体力の遅延適用
     execute if entity @s[tag=GolemRestoreHP] run function asset:mob/ally.golem/tick/apply_restore_hp
 
+# ゴーレム復帰体力の最終処理 (max_health復元)
+    execute if entity @s[tag=GolemRestoreHP_Finalize] run function asset:mob/ally.golem/tick/finalize_restore_hp
+
 # エリア処理
     function world_manager:area/
 ## トリガー処理

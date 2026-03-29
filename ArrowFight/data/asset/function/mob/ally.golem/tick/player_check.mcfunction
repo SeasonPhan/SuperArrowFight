@@ -31,11 +31,14 @@
 # タイマー切れ or 体力40%以下で変身解除
     execute if score @s ally.golem.Timer matches ..0 run function asset:mob/ally.golem/tick/restore_player
     execute if score @s ally.golem.Timer matches ..0 run return fail
-    execute if score $GolemHealthPer Temporary matches ..40 run function asset:mob/ally.golem/tick/restore_player
-    execute if score $GolemHealthPer Temporary matches ..40 run return fail
+    # restore_player は $GolemHealthPer を scale-10000 に上書きするため、先に scale-100 の値を保存する
+    scoreboard players operation $GolemHealthPerCheck Temporary = $GolemHealthPer Temporary
+    execute if score $GolemHealthPerCheck Temporary matches ..40 run function asset:mob/ally.golem/tick/restore_player
+    execute if score $GolemHealthPerCheck Temporary matches ..40 run return fail
 
 # リセット
     scoreboard players reset $GolemHealth Temporary
     scoreboard players reset $GolemMaxHealth Temporary
     scoreboard players reset $GolemHealthPer Temporary
+    scoreboard players reset $GolemHealthPerCheck Temporary
     scoreboard players reset $Temp Temporary
