@@ -22,7 +22,7 @@
 # デバッグ (10tickごとに表示)
     scoreboard players operation $Temp Temporary = @s ally.golem.Timer
     scoreboard players operation $Temp Temporary %= $10 Const
-    execute if score $Temp Temporary matches 0 run tellraw @a [{"text":"[DEBUG] ","color":"gray"},{"text":"Golem HP: ","color":"aqua"},{"score":{"name":"$GolemHealthPer","objective":"Temporary"}},{"text":"%, Timer: ","color":"aqua"},{"score":{"name":"@s","objective":"ally.golem.Timer"}}]
+    #execute if score $Temp Temporary matches 0 run tellraw @a [{"text":"[DEBUG] ","color":"gray"},{"text":"Golem HP: ","color":"aqua"},{"score":{"name":"$GolemHealthPer","objective":"Temporary"}},{"text":"%, Timer: ","color":"aqua"},{"score":{"name":"@s","objective":"ally.golem.Timer"}}]
 
 # 死亡チェック (HP 0以下) - 即死の場合
     execute if score $GolemHealth Temporary matches ..0 run function asset:mob/ally.golem/tick/emergency_restore
