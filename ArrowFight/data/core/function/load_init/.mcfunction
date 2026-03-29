@@ -83,6 +83,16 @@
         scoreboard objectives add StopRegeneration dummy {"text":"ヘルス再生停止"}
         scoreboard objectives add DelayLoad dummy {"text":"遅延ロード"}
 
+    #> ゴーレム弾関連スコアボード
+    # @within function asset:mob/ally.golem/**
+    # @within function asset:object/projectile.golem_bullet/**
+        scoreboard objectives add ally.golem.VictimLink dummy {"text":"Golem Victim Link"}
+        scoreboard objectives add ally.golem.Timer dummy {"text":"Golem Transform Timer"}
+        scoreboard objectives add ally.golem.GraceTicks dummy {"text":"Golem Grace Period"}
+        scoreboard objectives add ally.golem.PosX dummy {"text":"Golem Victim PosX"}
+        scoreboard objectives add ally.golem.PosY dummy {"text":"Golem Victim PosY"}
+        scoreboard objectives add ally.golem.PosZ dummy {"text":"Golem Victim PosZ"}
+
 # Romの初期化
     function rom:init
 
