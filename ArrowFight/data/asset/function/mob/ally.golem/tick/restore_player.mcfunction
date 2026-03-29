@@ -20,6 +20,9 @@
     scoreboard players operation $GolemHealthPer Temporary *= $Scale Temporary
     scoreboard players operation $GolemHealthPer Temporary /= $GolemMaxHealth Temporary
 
+# ゴーレム体力パーセントをプレイヤーのスコアに直接保存 (Temporaryの共有状態に依存しないため)
+    execute as @a[tag=GolemTransformed] if score @s UserID = $GolemVictimLink Temporary run scoreboard players operation @s ally.golem.RestoreHP = $GolemHealthPer Temporary
+
 # VictimLinkと一致するプレイヤーを探して復帰させる (ゴーレムの位置で実行)
     execute at @s as @a[tag=GolemTransformed] if score @s UserID = $GolemVictimLink Temporary run function asset:mob/ally.golem/tick/do_restore
 

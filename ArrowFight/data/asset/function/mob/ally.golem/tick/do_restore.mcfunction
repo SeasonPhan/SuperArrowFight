@@ -3,9 +3,9 @@
 # プレイヤーの最大体力を取得して復帰体力を計算 (scale=100)
     execute store result score $PlayerMaxHealth Temporary run attribute @s max_health get 100
 
-# 復帰体力を計算: PlayerMaxHealth * (GolemHealthPer / 10000)
+# 復帰体力を計算: PlayerMaxHealth * (ally.golem.RestoreHP_as_GolemHealthPer / 10000)
     scoreboard players operation $RestoreHealth Temporary = $PlayerMaxHealth Temporary
-    scoreboard players operation $RestoreHealth Temporary *= $GolemHealthPer Temporary
+    scoreboard players operation $RestoreHealth Temporary *= @s ally.golem.RestoreHP
     scoreboard players set $Scale Temporary 10000
     scoreboard players operation $RestoreHealth Temporary /= $Scale Temporary
 
