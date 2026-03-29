@@ -218,12 +218,12 @@
     # 必要なアイテムを設定
         data modify storage lib: Shop.BuyItem.Item set value {id: "minecraft:iron_block"}
         data modify storage lib: Shop.BuyItem.Translate set value "block.minecraft.iron_block"
-        data modify storage lib: Shop.BuyItem.Count set value 1
+        data modify storage lib: Shop.BuyItem.Count set value 2
         function lib:dialog/shop/add_buy/
         # 必要なアイテムを設定
         data modify storage lib: Shop.BuyItem.Item set value {id: "minecraft:emerald"}
         data modify storage lib: Shop.BuyItem.Translate set value "item.minecraft.emerald"
-        data modify storage lib: Shop.BuyItem.Count set value 12
+        data modify storage lib: Shop.BuyItem.Count set value 10
         function lib:dialog/shop/add_buy/
     # 在庫を追加
         function lib:dialog/shop/add_stock/

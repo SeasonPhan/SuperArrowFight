@@ -40,14 +40,20 @@
                             "lore": [
                                 {
                                     "translate": "item.super_arrow_fight.golem_arrow.description.line_1",
-                                    "fallback": "Transforms the nearest hit player into your golem",
+                                    "fallback": "Transforms the nearest player into an iron golem",
                                     "color": "white",
                                     "italic": false
-                                },
+                                }
+                            ],
+                            "mode": "append"
+                        },
+                        {
+                            "function": "minecraft:set_lore",
+                            "lore": [
                                 {
                                     "translate": "item.super_arrow_fight.golem_arrow.description.line_2",
-                                    "fallback": "Returns them after 8s or at 40% golem health",
-                                    "color": "white",
+                                    "fallback": "for 8 seconds or until 40% health",
+                                    "color": "gray",
                                     "italic": false
                                 }
                             ],

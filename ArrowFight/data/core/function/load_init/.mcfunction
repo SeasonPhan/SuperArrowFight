@@ -83,6 +83,13 @@
         scoreboard objectives add StopRegeneration dummy {"text":"ヘルス再生停止"}
         scoreboard objectives add DelayLoad dummy {"text":"遅延ロード"}
 
+    #> ゴーレム変身用スコアボード
+    # @within function
+    #   asset:mob/ally.golem/**
+        scoreboard objectives add GolemTimer dummy {"text":"ゴーレム変身タイマー"}
+        scoreboard objectives add GolemOwnerID dummy {"text":"ゴーレムの所有者ID"}
+        scoreboard objectives add GolemLastHealth dummy {"text":"ゴーレムの最後の体力"}
+
 # Romの初期化
     function rom:init
 

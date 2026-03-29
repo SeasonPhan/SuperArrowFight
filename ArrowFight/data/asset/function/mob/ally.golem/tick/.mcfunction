@@ -4,12 +4,20 @@
 #
 # @within asset_manager:mob/triggers/tick/tick.m
 
-# 体力キャッシュを更新
-    function asset:mob/ally.golem/tick/cache_health
+# タイマーを減らす
+    scoreboard players remove @s GolemTimer 1
 
-# 時間経過で元に戻す
-    scoreboard players add @s General.Mob.Tick 1
-    execute store result score $Duration Temporary run data get storage asset:context this.DurationTicks
-    execute if score $Duration Temporary matches ..0 run scoreboard players set $Duration Temporary 160
-    execute unless data storage asset:context this{Restored:true} if score @s General.Mob.Tick >= $Duration Temporary run function asset:mob/ally.golem/restore/timeout
-    scoreboard players reset $Duration Temporary
+# 現在の体力を取得して保存
+    function api:mob/get_health
+    execute store result score @s GolemLastHealth run data get storage api: Return.Health 100
+
+# 体力パーセンテージを取得
+    function api:mob/get_health_percent
+    execute store result score $HealthPercent Temporary run data get storage api: Return.HealthPer 1
+
+# 体力が40%以下になったか、8秒経過したか確認
+    execute if score $HealthPercent Temporary matches ..40 run function asset:mob/ally.golem/tick/restore_player
+    execute if score @s GolemTimer matches ..0 run function asset:mob/ally.golem/tick/restore_player
+
+# クリーンアップ
+    scoreboard players reset $HealthPercent Temporary
