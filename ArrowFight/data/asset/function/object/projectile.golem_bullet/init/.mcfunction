@@ -12,7 +12,7 @@
     execute on vehicle run tag @s add VanishOnExitArena
 
 # デバッグ
-    tellraw @a [{"text":"[DEBUG] ","color":"gray"},{"text":"Golem Bullet fired!","color":"gold"}]
+    #tellraw @a [{"text":"[DEBUG] ","color":"gray"},{"text":"Golem Bullet fired!","color":"gold"}]
 
 # Super
     function asset:object/super.init
