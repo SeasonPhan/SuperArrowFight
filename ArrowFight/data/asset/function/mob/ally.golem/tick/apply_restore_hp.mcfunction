@@ -1,8 +1,8 @@
 #> asset:mob/ally.golem/tick/apply_restore_hp
 #
 # ゴーレム復帰時の体力を適用する
-# プレイヤーのHealth NBTは直接書き込みできないため、
-# max_healthを一時的に下げてHPをクランプし、元に戻す方式を使用
+# プレイヤーのHealth NBTは直接変更できないため、
+# まず全回復してから差分ダメージを与える方式を使用
 # @s = 復帰対象のプレイヤー
 #
 # @within function core:tick/player/
@@ -13,14 +13,17 @@
 # 最低1HP(=100スケール)は保証する
     execute if score @s ally.golem.RestoreHP matches ..100 run scoreboard players set @s ally.golem.RestoreHP 100
 
-# RestoreHP(スケール100)をfloat化してストレージに保存 (例: 225 → 2.25)
-    execute store result storage asset:temp RestoreHP float 0.01 run scoreboard players get @s ally.golem.RestoreHP
+# まず体力を全回復する (instant_health amplifier 10 = 2048HP回復, 20HPには十分)
+    effect give @s minecraft:instant_health 1 10 true
 
-# max_healthを復帰HPに一時的に設定 → 現在HPがクランプされる (20.0 → 2.25 etc.)
-    function asset:mob/ally.golem/tick/apply_max_health with storage asset:temp
+# ダメージ量を計算: (2000 - RestoreHP) * 0.01 = 与えるダメージ
+# 例: RestoreHP=225 → ダメージ = (2000-225) * 0.01 = 17.75 → HP: 20.0 - 17.75 = 2.25
+    scoreboard players set $DamageAmount Temporary 2000
+    scoreboard players operation $DamageAmount Temporary -= @s ally.golem.RestoreHP
 
-# max_healthを元に戻す (HPはクランプされた値のまま残る)
-    attribute @s max_health base set 20
+# ダメージが正の場合のみ適用 (RestoreHP >= 2000 なら全回復のまま)
+    execute if score $DamageAmount Temporary matches 1.. run execute store result storage asset:temp DamageAmount float 0.01 run scoreboard players get $DamageAmount Temporary
+    execute if score $DamageAmount Temporary matches 1.. run function asset:mob/ally.golem/tick/apply_damage with storage asset:temp
 
 # デバッグ (適用後のHP確認)
     execute store result score $Temp Temporary run data get entity @s Health 100
