@@ -27,8 +27,9 @@
     execute store result storage api: Argument.FieldOverride.VictimUserID int 1 run scoreboard players get @s UserID
     function api:mob/summon.m {ID:ally.golem}
 
-# プレイヤーをスペクテイターモードに変更
+# プレイヤーをスペクテイターモードに変更し、ゴーレムをスペクテイト
     gamemode spectator @s
+    spectate @e[type=iron_golem,tag=Mob.ally.golem,sort=nearest,limit=1,distance=..3] @s
 
 # 演出
     playsound minecraft:entity.iron_golem.repair player @a ~ ~ ~ 1 0.8

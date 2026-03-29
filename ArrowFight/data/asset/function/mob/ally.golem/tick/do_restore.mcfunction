@@ -6,7 +6,7 @@
 # @within function asset:mob/ally.golem/tick/restore_player
 
 # デバッグ
-    tellraw @a [{"text":"[DEBUG] ","color":"gray"},{"text":"Restoring ","color":"green"},{"selector":"@s"},{"text":" to golem position with scaled HP","color":"green"}]
+    tellraw @a [{"text":"[DEBUG] ","color":"gray"},{"text":"Restoring ","color":"green"},{"selector":"@s"},{"text":" to golem position with scaled HP=","color":"green"},{"score":{"name":"$RestoreHealth","objective":"Temporary"}}]
 
 # サバイバルモードに戻す (tp前に変更しないとスペクテイターの位置が使われる可能性)
     gamemode survival @s
@@ -14,8 +14,8 @@
 # プレイヤーをゴーレムの位置に移動
     tp @s ~ ~ ~ ~ ~
 
-# 体力を設定 (200000 = 20HP × 10000倍, $GolemHealth/$GolemMaxHealth比率で補正, 0.0001で元のHP単位に戻す)
-    execute store result entity @s Health float 0.0001 run scoreboard players get $RestoreHealth Temporary
+# 体力を設定 (2000 = 20HP × 100倍, $GolemHealth/$GolemMaxHealth比率で補正, 0.01で元のHP単位に戻す)
+    execute store result entity @s Health float 0.01 run scoreboard players get $RestoreHealth Temporary
 
 # 最低1HPは保証する
     execute store result score $Temp Temporary run data get entity @s Health 100

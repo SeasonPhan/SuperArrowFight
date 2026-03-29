@@ -23,12 +23,13 @@
     execute store result score $GolemPosY Temporary run data get entity @s Pos[1] 1000
     execute store result score $GolemPosZ Temporary run data get entity @s Pos[2] 1000
 
-# 現在のゴーレム体力パーセントを計算
-    execute store result score $GolemHealth Temporary run data get entity @s Health 10000
-    execute store result score $GolemMaxHealth Temporary run attribute @s max_health get 10000
+# 現在のゴーレム体力パーセントを計算 (scale=100でオーバーフロー防止)
+    execute store result score $GolemHealth Temporary run data get entity @s Health 100
+    execute store result score $GolemMaxHealth Temporary run attribute @s max_health get 100
 
 # プレイヤーの最大体力(20) × (ゴーレム体力 / ゴーレム最大体力) = 復帰体力
-    scoreboard players set $RestoreHealth Temporary 200000
+# 2000 * 10000 = 20,000,000 (32bit intの範囲内)
+    scoreboard players set $RestoreHealth Temporary 2000
     scoreboard players operation $RestoreHealth Temporary *= $GolemHealth Temporary
     scoreboard players operation $RestoreHealth Temporary /= $GolemMaxHealth Temporary
 
