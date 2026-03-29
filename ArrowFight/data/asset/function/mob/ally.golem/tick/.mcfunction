@@ -13,7 +13,7 @@
 
 # 体力パーセンテージを取得
     function api:mob/get_health_percent
-    execute store result score $HealthPercent Temporary run data get storage api: Return.HealthPer 1
+    execute store result score $HealthPercent Temporary run data get storage api: Return.HealthPer 100
 
 # 体力が40%以下になったか、8秒経過したか確認
     execute if score $HealthPercent Temporary matches ..40 run function asset:mob/ally.golem/tick/restore_player
