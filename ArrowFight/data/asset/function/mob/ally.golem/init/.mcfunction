@@ -13,7 +13,7 @@
     data modify entity @s Health set value 40.0f
 
 # 少し大きめにする (1.3倍)
-    attribute @s scale base set 0.3
+    attribute @s scale base set 1.3
 
 # ゴーレム化タイマー設定 (8秒 = 160tick)
     scoreboard players set @s ally.golem.Timer 160
