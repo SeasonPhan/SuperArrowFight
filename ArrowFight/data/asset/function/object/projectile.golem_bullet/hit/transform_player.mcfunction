@@ -9,7 +9,7 @@
     execute if entity @s[tag=GolemTransformed] run return fail
 
 # デバッグ
-    tellraw @a [{"text":"[DEBUG] ","color":"gray"},{"text":"Transforming player ","color":"green"},{"selector":"@s"},{"text":" into golem!","color":"green"}]
+    #tellraw @a [{"text":"[DEBUG] ","color":"gray"},{"text":"Transforming player ","color":"green"},{"selector":"@s"},{"text":" into golem!","color":"green"}]
 
 # プレイヤーにゴーレム化タグを付与
     tag @s add GolemTransformed
