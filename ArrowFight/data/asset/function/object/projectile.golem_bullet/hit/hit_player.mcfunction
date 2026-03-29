@@ -11,4 +11,4 @@
     execute positioned ~-0.5 ~-0.5 ~-0.5 as @p[tag=!PlayerShouldInvulnerable,tag=GameJoinedPlayer,dx=0] at @s run function asset:object/projectile.golem_bullet/hit/transform_player
 
 # デバッグ
-    tellraw @a [{"text":"[DEBUG] ","color":"gray"},{"text":"Golem Bullet hit player directly!","color":"yellow"}]
+    #tellraw @a [{"text":"[DEBUG] ","color":"gray"},{"text":"Golem Bullet hit player directly!","color":"yellow"}]
