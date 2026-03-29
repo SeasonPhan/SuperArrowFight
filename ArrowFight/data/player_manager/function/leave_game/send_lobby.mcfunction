@@ -4,6 +4,9 @@
 #
 # @within function core:handler/rejoin
 
+# ゴーレム化されたプレイヤーを元に戻す
+    tag @s remove GolemTransformed
+
 # テレポート
     tp @s 500 126 496
 

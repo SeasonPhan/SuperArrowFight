@@ -4,6 +4,9 @@
 #
 # @within function world_manager:event/game/end_game/tick
 
+# ゴーレム化されたプレイヤーを元に戻す
+    tag @s remove GolemTransformed
+
 # オブジェクト類をキル
     kill @e[tag=VanishOnExitArena,distance=..128]
 

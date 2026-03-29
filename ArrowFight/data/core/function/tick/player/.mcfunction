@@ -51,6 +51,9 @@
     execute if entity @s[scores={RejoinEvent=1..}] run function core:handler/rejoin
     execute if entity @s[scores={UseBowEvent=1..}] run function core:handler/use_bow
 
+# ゴーレム復帰体力の遅延適用
+    execute if entity @s[tag=GolemRestoreHP] run function asset:mob/ally.golem/tick/apply_restore_hp
+
 # エリア処理
     function world_manager:area/
 ## トリガー処理
