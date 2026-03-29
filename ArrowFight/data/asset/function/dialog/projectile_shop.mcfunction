@@ -208,6 +208,25 @@
         function lib:dialog/shop/add_buy/
     # 在庫を追加
         function lib:dialog/shop/add_stock/
+
+# 商品
+    # 商品を指定: ルートテーブルからやる
+        loot spawn ~ ~ ~ loot asset:item/golem_arrow
+        data modify storage lib: Shop.SellItem set from entity @n[type=item,distance=..0.1] Item
+        data modify storage lib: Shop.SellItem.count set value 1
+        kill @n[type=item,distance=..0.1]
+    # 必要なアイテムを設定
+        data modify storage lib: Shop.BuyItem.Item set value {id: "minecraft:iron_block"}
+        data modify storage lib: Shop.BuyItem.Translate set value "block.minecraft.iron_block"
+        data modify storage lib: Shop.BuyItem.Count set value 1
+        function lib:dialog/shop/add_buy/
+        # 必要なアイテムを設定
+        data modify storage lib: Shop.BuyItem.Item set value {id: "minecraft:emerald"}
+        data modify storage lib: Shop.BuyItem.Translate set value "item.minecraft.emerald"
+        data modify storage lib: Shop.BuyItem.Count set value 12
+        function lib:dialog/shop/add_buy/
+    # 在庫を追加
+        function lib:dialog/shop/add_stock/
     
 # 表示
     function lib:dialog/shop/

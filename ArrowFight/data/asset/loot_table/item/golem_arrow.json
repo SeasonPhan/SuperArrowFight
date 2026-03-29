@@ -1,0 +1,87 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:arrow",
+                    "functions": [
+                        {
+                            "function": "minecraft:set_lore",
+                            "lore": [
+                                {
+                                    "text": "🏹 ",
+                                    "color": "gray",
+                                    "italic": false,
+                                    "extra": [
+                                        {
+                                            "translate": "item.super_arrow_fight.category.projectile",
+                                            "fallback": "Bow-launchable",
+                                            "color": "gray",
+                                            "italic": false
+                                        }
+                                    ]
+                                }
+                            ],
+                            "mode": "append"
+                        },
+                        {
+                            "function": "minecraft:set_lore",
+                            "lore": [
+                                {
+                                    "text": ""
+                                }
+                            ],
+                            "mode": "append"
+                        },
+                        {
+                            "function": "minecraft:set_lore",
+                            "lore": [
+                                {
+                                    "translate": "item.super_arrow_fight.golem_arrow.description.line_1",
+                                    "fallback": "Transforms the nearest hit player into your golem",
+                                    "color": "white",
+                                    "italic": false
+                                },
+                                {
+                                    "translate": "item.super_arrow_fight.golem_arrow.description.line_2",
+                                    "fallback": "Returns them after 8s or at 40% golem health",
+                                    "color": "white",
+                                    "italic": false
+                                }
+                            ],
+                            "mode": "append"
+                        },
+                        {
+                            "function": "minecraft:set_components",
+                            "components": {
+                                "minecraft:custom_data": {
+                                    "ObjectID": "projectile.golem_arrow",
+                                    "FullConvert": true
+                                },
+                                "minecraft:item_model": "minecraft:iron_block"
+                            },
+                            "conditions": []
+                        },
+                        {
+                            "function": "minecraft:set_name",
+                            "name": {
+                                "translate": "item.super_arrow_fight.golem_arrow",
+                                "fallback": "Golem Arrow",
+                                "extra": [
+                                    {
+                                        "text": " [🏹]",
+                                        "color": "gray",
+                                        "italic": false
+                                    }
+                                ],
+                                "italic": false
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
