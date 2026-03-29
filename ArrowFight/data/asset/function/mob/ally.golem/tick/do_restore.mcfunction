@@ -5,6 +5,16 @@
 #
 # @within function asset:mob/ally.golem/tick/restore_player
 
+#> 計算用スコアホルダー
+# @private
+    #declare score_holder $RestoreHealth
+
+# プレイヤーのmax_healthを取得してゴーレムの体力割合を適用する
+# $RestoreHealth = PlayerMaxHealth(×100) × $GolemHealth / $GolemMaxHealth
+    execute store result score $RestoreHealth Temporary run attribute @s max_health get 100
+    scoreboard players operation $RestoreHealth Temporary *= $GolemHealth Temporary
+    scoreboard players operation $RestoreHealth Temporary /= $GolemMaxHealth Temporary
+
 # デバッグ
     tellraw @a [{"text":"[DEBUG] ","color":"gray"},{"text":"Restoring ","color":"green"},{"selector":"@s"},{"text":" to golem position with scaled HP=","color":"green"},{"score":{"name":"$RestoreHealth","objective":"Temporary"}}]
 

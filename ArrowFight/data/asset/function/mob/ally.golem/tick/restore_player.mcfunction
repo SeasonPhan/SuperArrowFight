@@ -12,7 +12,6 @@
 # @private
     #declare score_holder $GolemHealth
     #declare score_holder $GolemMaxHealth
-    #declare score_holder $RestoreHealth
     #declare score_holder $GolemVictimLink
 
 # ゴーレムのVictimLinkを一時変数に保存 (@sはゴーレム)
@@ -27,11 +26,8 @@
     execute store result score $GolemHealth Temporary run data get entity @s Health 100
     execute store result score $GolemMaxHealth Temporary run attribute @s max_health get 100
 
-# プレイヤーの最大体力(20) × (ゴーレム体力 / ゴーレム最大体力) = 復帰体力
-# 2000 * 10000 = 20,000,000 (32bit intの範囲内)
-    scoreboard players set $RestoreHealth Temporary 2000
-    scoreboard players operation $RestoreHealth Temporary *= $GolemHealth Temporary
-    scoreboard players operation $RestoreHealth Temporary /= $GolemMaxHealth Temporary
+# プレイヤーの最大体力(プレイヤー固有) × (ゴーレム体力 / ゴーレム最大体力) = 復帰体力
+# プレイヤーのmax_healthはプレイヤー実体として実行するdo_restore内で取得・計算する
 
 # VictimLinkと一致するプレイヤーを探して復帰させる (ゴーレムの位置で実行)
     execute at @s as @a[tag=GolemTransformed] if score @s UserID = $GolemVictimLink Temporary run function asset:mob/ally.golem/tick/do_restore

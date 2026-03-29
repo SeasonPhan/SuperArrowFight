@@ -16,9 +16,9 @@
 # まず体力を全回復する (instant_health amplifier 10 = 2048HP回復, 20HPには十分)
     effect give @s minecraft:instant_health 1 10 true
 
-# ダメージ量を計算: (2000 - RestoreHP) * 0.01 = 与えるダメージ
-# 例: RestoreHP=225 → ダメージ = (2000-225) * 0.01 = 17.75 → HP: 20.0 - 17.75 = 2.25
-    scoreboard players set $DamageAmount Temporary 2000
+# ダメージ量を計算: (PlayerMaxHealth(×100) - RestoreHP) * 0.01 = 与えるダメージ
+# 例: MaxHP=20(×100=2000), RestoreHP=225 → ダメージ = (2000-225) * 0.01 = 17.75
+    execute store result score $DamageAmount Temporary run attribute @s max_health get 100
     scoreboard players operation $DamageAmount Temporary -= @s ally.golem.RestoreHP
 
 # ダメージが正の場合のみ適用 (RestoreHP >= 2000 なら全回復のまま)
@@ -27,7 +27,7 @@
 
 # デバッグ (適用後のHP確認)
     execute store result score $Temp Temporary run data get entity @s Health 100
-    tellraw @a [{"text":"[DEBUG] ","color":"gray"},{"text":"Applied HP: ","color":"yellow"},{"score":{"name":"$Temp","objective":"Temporary"}},{"text":"/2000","color":"yellow"}]
+    tellraw @a [{"text":"[DEBUG] ","color":"gray"},{"text":"Applied HP: ","color":"yellow"},{"score":{"name":"$Temp","objective":"Temporary"}}]
 
 # タグとスコアをリセット
     tag @s remove GolemRestoreHP
