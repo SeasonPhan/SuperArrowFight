@@ -16,7 +16,7 @@
     attribute @s scale base set 1.3
 
 # ゴーレム化タイマー設定 (8秒 = 160tick)
-    scoreboard players set @s ally.golem.Timer 160
+    scoreboard players set @s ally.golem.Timer 200
 
 # 猶予期間 (grace period = 5 tick)
     scoreboard players set @s ally.golem.GraceTicks 5
@@ -29,4 +29,4 @@
     rotate @s facing entity @p[distance=..16] feet
 
 # デバッグ
-    tellraw @a [{"text":"[DEBUG] ","color":"gray"},{"text":"Golem spawned! Timer=","color":"aqua"},{"score":{"name":"@s","objective":"ally.golem.Timer"}},{"text":", GraceTicks=","color":"aqua"},{"score":{"name":"@s","objective":"ally.golem.GraceTicks"}},{"text":", VictimLink=","color":"aqua"},{"score":{"name":"@s","objective":"ally.golem.VictimLink"}}]
+    #tellraw @a [{"text":"[DEBUG] ","color":"gray"},{"text":"Golem spawned! Timer=","color":"aqua"},{"score":{"name":"@s","objective":"ally.golem.Timer"}},{"text":", GraceTicks=","color":"aqua"},{"score":{"name":"@s","objective":"ally.golem.GraceTicks"}},{"text":", VictimLink=","color":"aqua"},{"score":{"name":"@s","objective":"ally.golem.VictimLink"}}]
