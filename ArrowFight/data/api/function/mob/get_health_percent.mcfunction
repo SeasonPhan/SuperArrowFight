@@ -12,13 +12,14 @@
     #declare score_holder $Health
     #declare score_holder $MaxHealth
 
-# 現在体力を割合で出す
-    execute store result score $Health Temporary run data get entity @s Health
-    execute store result score $MaxHealth Temporary run attribute @s max_health get
-    scoreboard players operation $MaxHealth Temporary /= $100 Const
+# 現在体力を割合で出す (0.0～1.0)
+    execute store result score $Health Temporary run data get entity @s Health 100
+    execute store result score $MaxHealth Temporary run attribute @s max_health get 100
+    scoreboard players operation $Health Temporary *= $100 Const
+    scoreboard players operation $Health Temporary /= $MaxHealth Temporary
 
 # 計算結果を api: Return.HealthPer
-    execute store result storage api: Return.HealthPer double 0.01 run scoreboard players operation $Health Temporary /= $MaxHealth Temporary
+    execute store result storage api: Return.HealthPer double 0.01 run scoreboard players get $Health Temporary
 
 # リセット
     scoreboard players reset $Health Temporary

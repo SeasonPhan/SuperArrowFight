@@ -14,9 +14,6 @@
     gamemode adventure @s
 
 # 体力をゴーレムの体力パーセンテージに合わせる
-    # ゴーレムの現在体力パーセンテージを計算
-    execute store result score $GolemHealthPercent Temporary run data get storage api: Return.HealthPer 100
-
     # プレイヤーの最大体力を取得
     execute store result score $PlayerMaxHealth Temporary run attribute @s max_health get 100
 

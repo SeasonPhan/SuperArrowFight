@@ -4,6 +4,11 @@
 #
 # @within function asset:mob/ally.golem/tick/
 
+# ゴーレムの体力パーセンテージを保存（変身解除後に使用）
+    execute store result score $GolemHealthPercent Temporary run scoreboard players get @s GolemLastHealth
+    execute store result score $GolemMaxHealth Temporary run attribute @s max_health get
+    scoreboard players operation $GolemHealthPercent Temporary /= $GolemMaxHealth Temporary
+
 # プレイヤーを見つける（OwnerUUIDで）
     execute store result score $SearchID Temporary run scoreboard players get @s GolemOwnerID
     execute as @a if score @s UserID = $SearchID Temporary run tag @s add GolemOwner
@@ -14,6 +19,8 @@
 # タグクリーンアップ
     tag @a[tag=GolemOwner] remove GolemOwner
     scoreboard players reset $SearchID Temporary
+    scoreboard players reset $GolemHealthPercent Temporary
+    scoreboard players reset $GolemMaxHealth Temporary
 
 # ゴーレムを消す
     function api:mob/kill
