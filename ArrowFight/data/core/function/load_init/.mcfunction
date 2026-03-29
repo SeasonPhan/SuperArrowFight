@@ -83,7 +83,7 @@
         scoreboard objectives add StopRegeneration dummy {"text":"ヘルス再生停止"}
         scoreboard objectives add DelayLoad dummy {"text":"遅延ロード"}
 
-    #> ゴーレム弾関連スコアボード → core:load に移動 (load_initは初回のみ実行のため)
+    #> ゴーレム弾関連スコアボード → core:load に移動 (ally.golem.VictimLink, Timer, GraceTicks, PosX/Y/Z)
 
 # Romの初期化
     function rom:init
