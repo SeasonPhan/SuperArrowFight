@@ -19,10 +19,8 @@
     scoreboard players operation $GolemHealthPer Temporary *= $100 Const
     scoreboard players operation $GolemHealthPer Temporary /= $GolemMaxHealth Temporary
 
-# デバッグ (10tickごとに表示)
-    execute if score @s ally.golem.Timer matches 0..160 if score @s ally.golem.Timer matches 0 run tellraw @a [{"text":"[DEBUG] ","color":"gray"},{"text":"Golem HP: ","color":"aqua"},{"score":{"name":"$GolemHealthPer","objective":"Temporary"}},{"text":"%, Timer: ","color":"aqua"},{"score":{"name":"@s","objective":"ally.golem.Timer"}}]
-    execute if score @s ally.golem.Timer matches 0..160 store success score $Temp Temporary run execute if score @s ally.golem.Timer matches 0 unless score @s ally.golem.Timer matches 0
-    execute store result score $Temp Temporary run scoreboard players operation $Temp Temporary = @s ally.golem.Timer
+# デバッグ (20tickごとに表示)
+    scoreboard players operation $Temp Temporary = @s ally.golem.Timer
     scoreboard players operation $Temp Temporary %= $10 Const
     execute if score $Temp Temporary matches 0 run tellraw @a [{"text":"[DEBUG] ","color":"gray"},{"text":"Golem HP: ","color":"aqua"},{"score":{"name":"$GolemHealthPer","objective":"Temporary"}},{"text":"%, Timer: ","color":"aqua"},{"score":{"name":"@s","objective":"ally.golem.Timer"}}]
 

@@ -24,7 +24,6 @@
 
 # ゴーレム召喚 - チーム情報を受け渡す
     data modify storage api: Argument.FieldOverride.Team set from storage asset:context this.Team
-    data modify storage api: Argument.FieldOverride.VictimUserID set from storage asset:context this.Team
     execute store result storage api: Argument.FieldOverride.VictimUserID int 1 run scoreboard players get @s UserID
     function api:mob/summon.m {ID:ally.golem}
 
